@@ -1,0 +1,19 @@
+import requests
+import json
+
+url = "https://api-seller.ozon.ru"
+method = "/v2/product/info"
+print(url + method)
+head = {
+  "Client-Id": "67857",
+  "Api-Key": "ece8543d-d55d-4355-a575-b6bfe77dbbc8"
+}
+
+body = {
+  "offer_id": "S46S020",
+  "product_id": "125170482"
+}
+body = json.dumps(body)
+response = requests.post(url + method, headers=head, data=body)
+
+print(response.text)
